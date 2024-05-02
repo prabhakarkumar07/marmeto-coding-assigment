@@ -15,13 +15,12 @@ fetch(
     const female = document.getElementById("w");
     const kid = document.getElementById("k");
 
-    // function to create product card dynamically
     function createProductCard(product) {
       const discount = Math.round(
         (1 - product.price / product.compare_at_price) * 100
       );
 
-      // Create elements dynamically
+      // Creating elements dynamically
       const card = document.createElement("div");
       card.classList.add("product-card");
 
@@ -93,6 +92,15 @@ fetch(
       productContainer.innerHTML = "";
       const category = data.categories[categoryIndex];
 
+      if (
+        !category ||
+        !category.category_products ||
+        category.category_products.length === 0
+      ) {
+        console.error("Invalid category data.");
+        return;
+      }
+
       category.category_products.forEach((product) => {
         const productCard = createProductCard(product);
         productContainer.appendChild(productCard);
@@ -108,23 +116,26 @@ fetch(
       });
     }
 
+    // Function to handle tab click event
+    function handleTabClick(tabIndex) {
+      displayProducts(tabIndex);
+      setActiveTab(tabIndex);
+    }
+
     // Event listeners for tab switching
     document.getElementById("men-tab").addEventListener("click", () => {
-      displayProducts(0);
-      setActiveTab(0);
+      handleTabClick(0);
     });
 
     document.getElementById("women-tab").addEventListener("click", () => {
-      displayProducts(1);
-      setActiveTab(1);
+      handleTabClick(1);
     });
 
     document.getElementById("kids-tab").addEventListener("click", () => {
-      displayProducts(2);
-      setActiveTab(2);
+      handleTabClick(2);
     });
 
-    // Function to set active tab and uproduct_detailate button colors
+    // Function to set active tab and update button colors
     function setActiveTab(tabIndex) {
       const tabButtons = document.querySelectorAll(".tab-btn");
       tabButtons.forEach((button, index) => {

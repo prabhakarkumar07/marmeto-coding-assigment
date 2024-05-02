@@ -193,6 +193,11 @@
     display: flex;
     justify-content: center;
   }
+  .product-card {
+    flex: 0 1 calc(100% - 20px);
+    width: 100%;
+    max-width: 100%;
+  }
 }
 
 /* Tablet Screen */
@@ -204,5 +209,15 @@
   .product-container {
     display: flex;
     justify-content: center;
+  }
+  .product-card {
+    flex: 0 1 calc(33.33% - 20px);
+  }
+  .product_detail {
+    margin-top: 0;
+    margin-bottom: 20px;
+  }
+  .product-card img {
+    height: 330px;
   }
 }
