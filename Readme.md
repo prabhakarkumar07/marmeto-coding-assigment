@@ -31,4 +31,4 @@ The frontend code is hosted on [GitHub](https://github.com/prabhakarkumar07/marm
 ##live server
 
 You can also view this project live at [link](https://marmeto-coding-assigment.vercel.app/) 
->>>>>>> 47eab6fc3ebf00e39a41727d96f8d10c9f424fa1
+
